@@ -52,8 +52,11 @@ class io {
 };
 
 int main() {
+    int int1 1;
     io io;
     io.println("Hello, World!");
     io.displaytest();
-    return 0;
+    io.print("this is the memory value of int1:");
+    io.println(&int1);
+    return 0
 }
