@@ -1,14 +1,59 @@
 #include <iostream>
-class Example {
+#include <stdio.h> 
+#include <string>
+#include <fstream>
+#include <chrono>
+#include <thread>
+class io {
     public:
-        void display() {
-            std::cout << "This is an example class." << std::endl;
+        void displaytest() {
+            do
+            {
+                int i = 0;
+            
+            std::cout <<  << "x x x x" << std::endl;
+            std::cout << "x     x" << std::endl;
+            std::cout << "x     x" << std::endl;
+            std::cout << "x x x x" << std::endl;
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
+            system("clear");
+            
+            std::cout << "       " << std::endl;
+            std::cout << "  x x  " << std::endl;
+            std::cout << "  x x  " << std::endl;
+            std::cout << "       " << std::endl;
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
+            system("clear");
+            i++;
+            }
+            while (true);
         }
-}
+        std::string input() {
+            std::string data;
+            std::cin >> data;
+            return data;
+        }
+        void print(std::string data)
+        {
+            std::cout << data;
+        }
+        void println(std::string data)
+        {
+            std::cout << data << std::endl;
+        }
+        std::string spacesin(int i)
+        {
+            std::string spaces = ""
+            for (int x = 1;, x == i, i++;);
+            {
+                spaces << " "
+            }
+        }
+};
 
 int main() {
-    Example ex;
-    std::cout << "Hello, World!" << std::endl;
-    ex.display();
+    io io;
+    io.println("Hello, World!");
+    io.displaytest();
     return 0;
 }
