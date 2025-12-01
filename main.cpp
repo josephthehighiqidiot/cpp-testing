@@ -22,29 +22,34 @@ class info
 class system
 {
     public:
-
     class console
     {
-        void clear
+        void clear()
         {
-            if (info.systemtype = w)
+            if (info.systemtype == w)
             {
-                system(cls)
+                system(cls);
             }
-            else if (info.systemtype = l)
+            else
             {
-                system(clear)
+                if (info.systemtype == l);
+            {
+                system(clear);
             }
-            else if
+        }
+            else
             {
-                
+                if
+                {
+                    std::cout << "Placeholder"
+                }
             }
             else
             {
                 std::cout  << "system.console.clear error info.systemtype dose not contain proper data"
             }
         }
-    }
+    };
 
 };
 class io {
@@ -63,15 +68,15 @@ class io {
             if  (spacesrequired <= 0)
             {
                 // handle long errors
-                goto errorend;
             }
             else if (spacesrequired % 2 != 0)
             {
-                
+                std::cout << spacesin(spacesrequired / 2 - 1) << error << spacesin(spacesrequired / 2);
             }
-            spacesrequired / 2;
-            std::cout << "\\\\*" << "" << "*//";
-            errorend:
+            else
+            {
+                std::cout << spacesin(spacesrequired / 2) << error << spacesin(spacesrequired / 2);
+            }
             
         }
         void displaytest() {
