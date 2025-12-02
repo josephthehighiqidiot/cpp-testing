@@ -112,9 +112,8 @@ class io {
 int main() {
     int int1 = 1;
     io io;
-    io.displaytest();
-    std::cout << "this is the memory value of int1:";
-    std::cout << &int1;
+    std::cout << "this is the memory value of int1: ";
+    std::cout << &int1 << std::endl;
     io.throwerror("test");
     return 0;
 }
