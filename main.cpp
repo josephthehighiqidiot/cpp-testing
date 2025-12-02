@@ -9,40 +9,52 @@
     #define PLATFORM_CHAR 'w'
 #elif __linux__
     #define PLATFORM_CHAR 'l'
+#elif __unix__
+    #define PLATFORM_CHAR 'u'
+#elif __APPLE__
+    #define PLATFORM_CHAR 'a'
 #else
-    #define PLATFORM_CHAR 'u' // 'u' for unknown/default
+    #define PLATFORM_CHAR '?' // 'u' for unknown/default
 #endif
 
 class info
 {  
     public:
-    char systemtype = PLATFORM_CHAR;
+    const char systemtype = PLATFORM_CHAR;
 };
 
-class system
+class systemctl
 {
     public:
     class console
     {
         void clear()
         {
+            io io;
             info info;
             if (info.systemtype == 'w')
             {
-                system(cls);
+                system("cls");
             }
             else if (info.systemtype == 'l')
             {
-                system(clear);
+                system("clear");
             }
             else if (info.systemtype == 'u')
             {
-                std::cout << "Placeholder";
+                system("clear");
             }
-            
+            else if (info.systemtype == 'a')
+            {
+                system("clear");
+            }
+            else if (info.systemtype == '?')
+            {
+                system("clear");
+            }
             else 
             {
-                std::cout  << "system.console.clear error info.systemtype dose not contain proper data";
+                io.throwerror("systemctl.console.clear error info.systemtype dose not contain proper data");
 
             }
         }
@@ -53,26 +65,39 @@ class io {
     public:
         void throwerror(std::string error)
         {
-            for (int i = 1; i == 10; i++)
+            if (error.length() > 41)
             {
-                std::cout << std::endl;
-            }
-            for (int i = 1; i == 10; i++)
-            {
-                std::cout << "\\\\\\*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*///" << std::endl;
-            }
-            int spacesrequired = 41 - error.length();
-            if  (spacesrequired < 0)
-            {
-                // handle long errors
-            }
-            else if (spacesrequired % 2 != 0)
-            {
-                std::cout << spacesin((spacesrequired -1 ) / 2) << error << spacesin((spacesrequired - 1) / 2 + 1);
+                //somthing
             }
             else
             {
-                std::cout << spacesin(spacesrequired / 2) << error << spacesin(spacesrequired / 2);
+                for (int i = 1; i <= 10; i++)
+                {
+                    std::cout << std::endl;
+                }
+                std::cout << "---------------#!-ERROR START-!#---------------" << std::endl;
+                for (int i = 1; i <= 10; i++)
+                {
+                    std::cout << "\\\\\\*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*///" << std::endl;
+                }
+                int spacesrequired = 41 - error.length();
+                if (spacesrequired % 2 != 0)
+                {
+                    std::cout << ">>>" << spacesin((spacesrequired -1 ) / 2) << error << spacesin((spacesrequired - 1) / 2 + 1) << "<<<" << std::endl;
+                }
+                else
+                {
+                    std::cout << ">>>" <<  spacesin(spacesrequired / 2) << error << spacesin(spacesrequired / 2) << "<<<" << std::endl;
+                }
+                for (int i = 1; i <= 10; i++)
+                {
+                    std::cout << "///*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*\\\\\\" << std::endl;
+                }
+                std::cout << "----------------#!-ERROR END-!#----------------" << std::endl;
+                for (int i = 1; i <= 10; i++)
+                {
+                    std::cout << std::endl;
+                }
             }
             
         }
@@ -100,12 +125,8 @@ class io {
         }
         std::string spacesin(int i)
         {
-            std::string spaces = "";
-            for (int x = 0; x == i; i++);
-            {
-                spaces += " ";
-            }
-            return spaces;
+            if (i < 0) return "";
+            return std::string(i, ' '); 
         }
 };
 
@@ -114,6 +135,6 @@ int main() {
     io io;
     std::cout << "this is the memory value of int1: ";
     std::cout << &int1 << std::endl;
-    io.throwerror("test");
+    io.throwerror("tester");
     return 0;
 }
