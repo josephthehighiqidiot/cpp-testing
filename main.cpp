@@ -31,12 +31,11 @@ class system
             {
                 system(cls);
             }
-            else if (info.systemtype == 'l');
+            else if (info.systemtype == 'l')
             {
                 system(clear);
             }
-            
-            else if
+            else if (info.systemtype == 'u')
             {
                 std::cout << "Placeholder";
             }
