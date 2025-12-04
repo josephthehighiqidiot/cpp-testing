@@ -139,7 +139,7 @@ int main() {
     systemctl systemctl;
     systemctl::console console;
     console.clear();
-    for (int i = 0; i < 1000; i++)
+    for (int i = 0; i < 10000; i++)
     {
         int x = 0;
         std::string filename = "file_";
